@@ -1,4 +1,4 @@
-# scrumptious-squad-de-jan-23-proj
+# Data engineering end-to-end pipeline project
 
 This project is a custom ETL pipeline. Data starts in an Amazon RDS postgres database, and is extracted to Parquet files stored in S3, transformed, and loaded into a postgres OLAP data warehouse. Data is therefore prepared for further work by Data Analysts.
 
