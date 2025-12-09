@@ -116,6 +116,6 @@ deactivate
 
 <br />
 
-- Follow step 4 again, but between 4e and 4f, in both `terraform/create_secrets_bucket` and `terraform/`,
+- Follow step 2 again, but right before step 2.7, in both `terraform/create_secrets_bucket` and `terraform/`,
 delete any folders and files beginning with `.terraform` and any `terraform.tfstate` files.
-- Retry this step once more if step 4f fails.
+- Retry this step once more if step 2.7 fails.
