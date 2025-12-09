@@ -56,17 +56,16 @@ make run-checks
 
 <br />
 
-6. Create .env files to store your database credentials in a hidden way. Development credentials will be uploaded to AWS SecretsManager in the next step, which is required for the actual apps to work. Test .env files are required for tests
-    1. For seed Totesys credentials, run the following from `project root`, replacing the capitalised variables with your credentials:
+6. Create .env files to store your credentials in a hidden way. Then upload them to AWS SecretsManager. This is required for the actual apps and the tests to work.
+    1. For test credentials, run the following from `project root`, replacing the capitalised variables with your credentials:
     ```sh
     mkdir -p config
     touch config/.env.test
     echo 'database=SEED_TOTESYS_DATABASE_NAME' >> config/.env.test
     echo 'user=YOUR_LOCAL_POSTGRES_USERNAME' >> config/.env.test
     echo 'password=YOUR_LOCAL_POSTGRES_PASSWORD' >> config/.env.test
-
     ```
-    2. For actual Totesys database credentials, run the following from `project root`, replacing the capitalised variables with your credentials:
+    2. For source Totesys database credentials, run the following from `project root`, replacing the capitalised variables with your credentials:
     ```sh
     mkdir -p config
     touch config/.env.development
@@ -75,9 +74,8 @@ make run-checks
     echo 'password=TOTESYS_PASSWORD' >> config/.env.development
     echo 'host=TOTESYS_HOST' >> config/.env.development
     echo 'port=TOTESYS_PORT' >> config/.env.development
-
     ```
-    3. For actual Northcoders warehouse credentials, run the following from `project root`, replacing the capitalised variables with your credentials:
+    3. For target Northcoders database credentials, run the following from `project root`, replacing the capitalised variables with your credentials:
     ```sh
     mkdir -p config
     touch config/.env.warehouse
@@ -86,15 +84,13 @@ make run-checks
     echo 'password=NORTHCODERS_WAREHOUSE_PASSWORD' >> config/.env.warehouse
     echo 'host=NORTHCODERS_WAREHOUSE_HOST' >> config/.env.warehouse
     echo 'port=NORTHCODERS_WAREHOUSE_PORT' >> config/.env.warehouse
-    
     ```
-
-7. Upload the development credentials you just stored to AWS SecretsManager by running this script:
-```sh
-source venv/bin/activate
-export PYTHONPATH=$(pwd)
-python src/set_up/run_make_secrets.py
-```
+    4. Upload the development credentials you just stored to AWS SecretsManager by running this script:
+    ```sh
+    source venv/bin/activate
+    export PYTHONPATH=$(pwd)
+    python src/set_up/run_make_secrets.py
+    ```
 
 <br />
 
