@@ -21,14 +21,14 @@ make run-checks
 
 <br />
 
-3. Deploy into a new sandbox
-    1. Create your AWS instance
-    2. Set up your AWS credentials locally by running 
+3. Deploy into a new AWS sandbox
+    1. Create your AWS instance using the console
+    2. Set up your AWS credentials locally by running
     ```
     aws configure
     ```
-    3. If your instance's region is not us-east-1, in `terraform/`, change the region in `backend.tf` and `provider.tf` to match yours
-    4. In `terraform/create_secrets_bucket/s3.tf` rename `secrets_bucket` to a unique name
+    3. In `terraform/`, change the region in `backend.tf` and `provider.tf` to match your instance's region
+    4. In `terraform/create_secrets_bucket/s3.tf` rename `secrets_bucket` to your desired name for a secret bucket
     5. In `terraform/backend.tf` rename `backend s3`'s bucket to match the previous step
     6. In `terraform/vars.tf`, ensure the email within the email variable is correct
     7. From the PROJECT ROOT, run:
@@ -38,7 +38,7 @@ make run-checks
     cd ..
     terraform init && terraform apply -auto-approve
     ```
-    8. Confirm the SNS subscription in the email used in step 4e
+    8. Verify that the SNS subscription is successful using the inbox of the email specified in step 3.6
 
 <br />
 
