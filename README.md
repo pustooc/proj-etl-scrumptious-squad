@@ -14,14 +14,7 @@ This project performs Extract-Transform-Load on a transactional database to extr
 
 <br />
 
-2. Check code safety and coverage and run tests with:
-```sh
-make run-checks
-```
-
-<br />
-
-3. Deploy into a new AWS sandbox
+2. Deploy into a new AWS sandbox
     1. Create your AWS instance using the console
     2. Set up your AWS credentials locally by running
     ```
@@ -42,21 +35,7 @@ make run-checks
 
 <br />
 
-4. In your GitHub repo's secrets, make two new secrets. This is to enable CI/CD via GitHub Actions
-    1. Name the first `AWS_ACCESS_KEY`, and in its contents copy-paste your AWS access key
-    2. Name the second `AWS_SECRET_KEY`, and in its contents copy-paste your AWS secret key
-
-<br />
-
-5. Setup the seed Totesys database and Northcoders warehouse by running these two scripts from `project root`:
-```sh
-./extraction_test_db/run_seed_ext_test_db.sh
-./load_test_warehouse_setup/run_seed_load_test_warehouse.sh
-```
-
-<br />
-
-6. Create .env files to store your credentials in a hidden way. Then upload them to AWS SecretsManager. This is required for the actual apps and the tests to work.
+3. Create .env files to store your credentials in a hidden way. Then upload them to AWS SecretsManager. This is required for the actual apps and the tests to work.
     1. For test credentials, run the following from `project root`, replacing the capitalised variables with your credentials:
     ```sh
     mkdir -p config
@@ -91,6 +70,27 @@ make run-checks
     export PYTHONPATH=$(pwd)
     python src/set_up/run_make_secrets.py
     ```
+
+<br />
+
+4. Setup the seed Totesys database and Northcoders warehouse by running these two scripts from `project root`:
+```sh
+./extraction_test_db/run_seed_ext_test_db.sh
+./load_test_warehouse_setup/run_seed_load_test_warehouse.sh
+```
+
+<br />
+
+5. Check code safety and coverage and run tests with:
+```sh
+make run-checks
+```
+
+<br />
+
+6. In your GitHub repo's secrets, make two new secrets. This is to enable CI/CD via GitHub Actions
+    1. Name the first `AWS_ACCESS_KEY`, and in its contents copy-paste your AWS access key
+    2. Name the second `AWS_SECRET_KEY`, and in its contents copy-paste your AWS secret key
 
 <br />
 
