@@ -8,31 +8,13 @@ This project performs Extract-Transform-Load on a transactional database to extr
 
 <br />
 
-1. Check which pyenv versions you have available:
-```sh
-pyenv versions
-```
-We should be using pyenv version 3.9.7 as stated in `.python-version`, if 
-the version is not found please install and set up as the local:
-```sh
-pyenv install 3.9.7
-```
-```sh
-pyenv local 3.9.7
-```
+1. Setup the dev environment:
+    1. Install WSL and VS Code. In the Linux terminal, type `code .` to shadow-install VS Code server.
+    2. In Linux, install/update apt-get, git, psql, make, pyenv, python (`.python-version`), aws cli, jq, autopep8, and Terraform.
 
 <br />
 
-2. Install Make
-
-On Linux, run:
-```
-sudo apt install make -y
-```
-
-<br />
-
-3. Install dependencies, check code safety and coverage, and run tests with:
+2. Install dependencies, check code safety and coverage, and run tests with:
 ```sh
 make dev-setup
 make run-checks
@@ -40,7 +22,7 @@ make run-checks
 
 <br />
 
-4. Deploy into a new sandbox
+3. Deploy into a new sandbox
     1. Create your AWS instance
     2. Set up your AWS credentials locally by running 
     ```
@@ -57,20 +39,17 @@ make run-checks
     cd ..
     terraform init && terraform apply -auto-approve
     ```
+    8. Confirm the SNS subscription in the email used in step 4e
 
 <br />
 
-5. Confirm the SNS subscription in the email used in step 4e
-
-<br />
-
-6. In your GitHub repo's secrets, make two new secrets. This is to enable CI/CD via GitHub Actions
+4. In your GitHub repo's secrets, make two new secrets. This is to enable CI/CD via GitHub Actions
     1. Name the first `AWS_ACCESS_KEY`, and in its contents copy-paste your AWS access key.
     2. Name the second `AWS_SECRET_KEY`, and in its contents copy-paste your AWS secret key.
 
 <br />
 
-7. Setup the seed Totesys database and Northcoders warehouse by running these two scripts from the PROJECT ROOT:
+5. Setup the seed Totesys database and Northcoders warehouse by running these two scripts from the PROJECT ROOT:
 ```sh
 ./extraction_test_db/run_seed_ext_test_db.sh
 ./load_test_warehouse_setup/run_seed_load_test_warehouse.sh
@@ -78,7 +57,7 @@ make run-checks
 
 <br />
 
-8. Create .env files to store your database credentials in a hidden way. Development credentials will be uploaded to AWS SecretsManager in the next step, which is required for the actual apps to work. Test .env files are required for tests
+6. Create .env files to store your database credentials in a hidden way. Development credentials will be uploaded to AWS SecretsManager in the next step, which is required for the actual apps to work. Test .env files are required for tests
     1. For seed Totesys credentials, run the following from PROJECT ROOT, replacing the capitalised variables with your credentials:
     ```sh
     mkdir -p config
@@ -111,7 +90,7 @@ make run-checks
     
     ```
 
-9. Upload the development credentials you just stored to AWS SecretsManager by running this script:
+7. Upload the development credentials you just stored to AWS SecretsManager by running this script:
 ```sh
 source venv/bin/activate
 export PYTHONPATH=$(pwd)
