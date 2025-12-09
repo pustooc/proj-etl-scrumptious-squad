@@ -43,8 +43,8 @@ make run-checks
 <br />
 
 4. In your GitHub repo's secrets, make two new secrets. This is to enable CI/CD via GitHub Actions
-    1. Name the first `AWS_ACCESS_KEY`, and in its contents copy-paste your AWS access key.
-    2. Name the second `AWS_SECRET_KEY`, and in its contents copy-paste your AWS secret key.
+    1. Name the first `AWS_ACCESS_KEY`, and in its contents copy-paste your AWS access key
+    2. Name the second `AWS_SECRET_KEY`, and in its contents copy-paste your AWS secret key
 
 <br />
 
