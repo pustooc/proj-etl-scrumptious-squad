@@ -14,9 +14,8 @@ This project performs Extract-Transform-Load on a transactional database to extr
 
 <br />
 
-2. Install dependencies, check code safety and coverage, and run tests with:
+2. Check code safety and coverage and run tests with:
 ```sh
-make dev-setup
 make run-checks
 ```
 
