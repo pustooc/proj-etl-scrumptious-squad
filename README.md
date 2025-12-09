@@ -31,7 +31,7 @@ make run-checks
     4. In `terraform/create_secrets_bucket/s3.tf` rename `secrets_bucket` to your desired name for a secret bucket
     5. In `terraform/backend.tf` rename `backend s3`'s bucket to match the previous step
     6. In `terraform/vars.tf`, ensure the email within the email variable is correct
-    7. From the PROJECT ROOT, run:
+    7. From `project root`, run:
     ```sh
     cd terraform/create_secrets_bucket
     terraform init && terraform apply -auto-approve
@@ -48,7 +48,7 @@ make run-checks
 
 <br />
 
-5. Setup the seed Totesys database and Northcoders warehouse by running these two scripts from the PROJECT ROOT:
+5. Setup the seed Totesys database and Northcoders warehouse by running these two scripts from `project root`:
 ```sh
 ./extraction_test_db/run_seed_ext_test_db.sh
 ./load_test_warehouse_setup/run_seed_load_test_warehouse.sh
@@ -57,7 +57,7 @@ make run-checks
 <br />
 
 6. Create .env files to store your database credentials in a hidden way. Development credentials will be uploaded to AWS SecretsManager in the next step, which is required for the actual apps to work. Test .env files are required for tests
-    1. For seed Totesys credentials, run the following from PROJECT ROOT, replacing the capitalised variables with your credentials:
+    1. For seed Totesys credentials, run the following from `project root`, replacing the capitalised variables with your credentials:
     ```sh
     mkdir -p config
     touch config/.env.test
@@ -66,7 +66,7 @@ make run-checks
     echo 'password=YOUR_LOCAL_POSTGRES_PASSWORD' >> config/.env.test
 
     ```
-    2. For actual Totesys database credentials, run the following from PROJECT ROOT, replacing the capitalised variables with your credentials:
+    2. For actual Totesys database credentials, run the following from `project root`, replacing the capitalised variables with your credentials:
     ```sh
     mkdir -p config
     touch config/.env.development
@@ -77,7 +77,7 @@ make run-checks
     echo 'port=TOTESYS_PORT' >> config/.env.development
 
     ```
-    3. For actual Northcoders warehouse credentials, run the following from PROJECT ROOT, replacing the capitalised variables with your credentials:
+    3. For actual Northcoders warehouse credentials, run the following from `project root`, replacing the capitalised variables with your credentials:
     ```sh
     mkdir -p config
     touch config/.env.warehouse
