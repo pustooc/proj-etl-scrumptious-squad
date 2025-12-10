@@ -8,15 +8,15 @@ This project is a custom ETL pipeline. Data starts in an Amazon RDS postgres dat
 
 <br />
 
-1. Setup the dev environment:
-    1. Install WSL and VS Code. In the Linux terminal, type `code .` to shadow-install VS Code server.
-    2. In Linux, install/update apt-get, git, psql, make, pyenv, python (`.python-version`), aws cli, jq, autopep8, and Terraform.
+1. Setup the dev environment
+    1. Install WSL and VS Code. Then in the Linux terminal, type `code .` to shadow-install VS Code Server
+    2. Install or update Linux softwares: apt-get, git, psql, make, pyenv, python (`.python-version`), aws cli, jq, autopep8, and Terraform
 
 <br />
 
 2. Deploy into a new AWS sandbox
     1. Create your AWS instance using the console
-    2. Set up your AWS credentials locally by running
+    2. Set up your AWS credentials locally by running:
     ```
     aws configure
     ```
@@ -35,7 +35,7 @@ This project is a custom ETL pipeline. Data starts in an Amazon RDS postgres dat
 
 <br />
 
-3. Create .env files to store your credentials in a hidden way. Then upload them to AWS SecretsManager. This is required for the actual apps and the tests to work.
+3. Store your secrets in either .env files or a secrets manager. Here we store it in both .env files and AWS SecretsManager
     1. For test credentials, run the following from `project root`, replacing the capitalised variables with your credentials:
     ```sh
     mkdir -p config
@@ -73,7 +73,7 @@ This project is a custom ETL pipeline. Data starts in an Amazon RDS postgres dat
 
 <br />
 
-4. Setup the seed Totesys database and Northcoders warehouse by running these two scripts from `project root`:
+4. Seed the local dev Totesys source and Northcoders target databases by running these two scripts from `project root`:
 ```sh
 ./extraction_test_db/run_seed_ext_test_db.sh
 ./load_test_warehouse_setup/run_seed_load_test_warehouse.sh
@@ -81,14 +81,14 @@ This project is a custom ETL pipeline. Data starts in an Amazon RDS postgres dat
 
 <br />
 
-5. Check code safety and coverage and run tests with:
+5. Check code safety and coverage and run tests by running the Makefile:
 ```sh
 make run-checks
 ```
 
 <br />
 
-6. In your GitHub repo's secrets, make two new secrets. This is to enable CI/CD via GitHub Actions
+6. Enable CI/CD via GitHub Actions. In your GitHub repo's secrets, make two new secrets
     1. Name the first `AWS_ACCESS_KEY`, and in its contents copy-paste your AWS access key
     2. Name the second `AWS_SECRET_KEY`, and in its contents copy-paste your AWS secret key
 
