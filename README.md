@@ -9,8 +9,11 @@ This project is a custom ETL pipeline. Data starts in an Amazon RDS postgres dat
 <br />
 
 1. Setup the dev environment
-    1. Install WSL and VS Code. Then in the Linux terminal, type `code .` to shadow-install VS Code Server
-    2. Install or update Linux softwares: apt-get, git, psql, make, pyenv, python (`.python-version`), aws cli, jq, autopep8, and Terraform
+    1. Install WSL. Then tweak the Ubuntu terminal
+    2. Install VS Code Windows. Then in the Linux terminal, type `code .` to shadow-install VS Code Server. Then install WSL and remote extensions
+    3. Install or update Linux softwares: apt-get, git, psql. Then start the postgres service and configure psql password
+    4. Install or update Linux softwares: pyenv, python (`.python-version`) via pyenv, aws cli, make, autopep8, and jq. Then type `aws configure`
+    5. Install or update Linux softwares: Terraform
 
 <br />
 
